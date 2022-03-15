@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">MagicCards</string>
 
+    <!-- Strings used for fragments for navigation -->
+    <string name="home_fragment_label">Home Fragment</string>
+
     <!-- Strings used for HomeFragment -->
     <string name="welcome_text">Welcome to Magic Cards</string>
     <string name="author_name">Mónica Almaraz Lozano</string>

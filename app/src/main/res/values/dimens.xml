@@ -1,3 +1,14 @@
 <resources>
+    <!-- Helper -->
+    <dimen name="zero_dimen">0dp</dimen>
+
+    <!-- Margins -->
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="default_margin">20dp</dimen>
+    <dimen name="big_margin">50dp</dimen>
+
+    <!-- Text Size -->
+    <dimen name="title_size">25sp</dimen>
+    <dimen name="big_title_size">30sp</dimen>
+
 </resources>

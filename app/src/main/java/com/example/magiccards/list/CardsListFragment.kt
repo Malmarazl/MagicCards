@@ -7,11 +7,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.magiccards.MainActivity
 import com.example.magiccards.R
+import com.example.magiccards.detail.CardDetailFragment
 
 class CardsListFragment : Fragment() {
 
     lateinit var viewModel: CardsListViewModel
+
+    private var cardListener = object: CardListener {
+        override fun sendCardID(id: String) {
+
+            val cardDetailFragment = CardDetailFragment()
+            val bundle = Bundle()
+
+            bundle.putString(CARD_ID, id)
+            cardDetailFragment.arguments = bundle
+
+            view?.let{
+                (activity as MainActivity).openFragment(cardDetailFragment)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,11 +49,14 @@ class CardsListFragment : Fragment() {
 
         viewModel.cardsList.observe(
             viewLifecycleOwner,{
-                val adapter = ItemCardListAdapter(it, requireContext())
+                val adapter = ItemCardListAdapter(it, requireContext(), cardListener)
                 recycler.adapter = adapter
                 recycler.layoutManager = LinearLayoutManager(context)
             }
         )
     }
 
+    companion object {
+        const val CARD_ID = "multiverseid"
+    }
 }

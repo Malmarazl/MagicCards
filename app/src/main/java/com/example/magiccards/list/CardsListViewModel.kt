@@ -11,10 +11,10 @@ import java.lang.Exception
 
 class CardsListViewModel: ViewModel() {
 
-    private val _cardsList: MutableLiveData<List<Card>> = MutableLiveData()
+    private val _cardsList = MutableLiveData<List<Card>>()
     private val _error = MutableLiveData<String>()
 
-    val cardsList: MutableLiveData<List<Card>>  = _cardsList
+    val cardsList: LiveData<List<Card>>  = _cardsList
     val error: LiveData<String> = _error
 
     fun getCards() {
@@ -26,7 +26,9 @@ class CardsListViewModel: ViewModel() {
     private suspend fun connectionToCardService() {
         try {
             val response = ServiceAdapter.getApiService()?.getCards()
-            _cardsList.postValue(response?.cards)
+            response?.let {
+                _cardsList.postValue(it.cards)
+            }?: _error.postValue("Error al cargar el listado de cartas")
         } catch (e: Exception) {
             _error.postValue(e.message)
         }

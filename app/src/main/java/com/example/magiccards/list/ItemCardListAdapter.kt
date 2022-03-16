@@ -13,7 +13,8 @@ import com.example.magiccards.R
 import com.example.magiccards.models.Card
 
 class ItemCardListAdapter(private var itemList: List<Card>,
-                          private val context: Context) : RecyclerView.Adapter<ItemCardListAdapter.ViewHolder>() {
+                          private val context: Context,
+                          private val cardListener: CardListener) : RecyclerView.Adapter<ItemCardListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemCardListAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card_list, parent, false)
@@ -34,9 +35,9 @@ class ItemCardListAdapter(private var itemList: List<Card>,
             .fitCenter()
             .into(holder.image)
 
-        /*holder.card.setOnClickListener {
-            cardListener.sendProductID(item.id)
-        }*/
+        holder.card.setOnClickListener {
+            cardListener.sendCardID(item.id)
+        }
     }
 
     override fun getItemCount(): Int = itemList.size

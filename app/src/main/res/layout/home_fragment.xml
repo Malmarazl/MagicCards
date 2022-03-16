@@ -61,6 +61,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/big_margin"
         app:layout_constraintTop_toBottomOf="@+id/authorDate"
-        android:text="@string/enter" />
+        android:text="@string/button_enter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

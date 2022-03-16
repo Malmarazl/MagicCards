@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceAdapter {
     private var API_SERVICE: CardService? = null
+    private const val URL = "https://api.magicthegathering.io/v1/"
 
     fun getApiService(): CardService? {
         val logging = HttpLoggingInterceptor()
@@ -15,7 +16,7 @@ object ServiceAdapter {
         val httpClient = OkHttpClient.Builder()
         httpClient.addInterceptor(logging)
 
-        val baseUrl = "https://api.magicthegathering.io/v1/"
+        val baseUrl = URL
 
         if (API_SERVICE == null) {
             val retrofit = Retrofit.Builder()
@@ -23,6 +24,7 @@ object ServiceAdapter {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(httpClient.build())
                 .build()
+
             API_SERVICE = retrofit.create(CardService::class.java)
         }
 

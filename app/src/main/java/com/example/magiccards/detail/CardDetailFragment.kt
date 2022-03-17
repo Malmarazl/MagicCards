@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.magiccards.MainActivity
 import com.example.magiccards.R
-import org.w3c.dom.Text
 
 class CardDetailFragment: Fragment() {
 
@@ -37,7 +36,7 @@ class CardDetailFragment: Fragment() {
         viewModel.getCard(cardID)
 
 
-        setObserver(view)
+        setObservers(view)
 
         buttonBack.setOnClickListener {
             requireActivity().onBackPressed()
@@ -45,7 +44,7 @@ class CardDetailFragment: Fragment() {
 
     }
 
-    private fun setObserver(view :View) {
+    private fun setObservers(view :View) {
         viewModel.card.observe(
             viewLifecycleOwner, {
                 view.findViewById<TextView>(R.id.card_detail_name).text = it.name
@@ -58,5 +57,12 @@ class CardDetailFragment: Fragment() {
                     .into(view.findViewById(R.id.card_detail_image))
             }
         )
+
+        viewModel.loading.observe(
+            viewLifecycleOwner, {
+                (requireActivity() as MainActivity).showSpinner(it)
+            }
+        )
+
     }
 }

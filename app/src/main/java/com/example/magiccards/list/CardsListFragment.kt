@@ -47,9 +47,11 @@ class CardsListFragment : Fragment() {
                 recycler.layoutManager = LinearLayoutManager(context)
             }
         )
-    }
 
-    companion object {
-        const val CARD_ID = "multiverseid"
+        viewModel.loading.observe(
+            viewLifecycleOwner,{
+                (requireActivity() as MainActivity).showSpinner(it)
+            }
+        )
     }
 }

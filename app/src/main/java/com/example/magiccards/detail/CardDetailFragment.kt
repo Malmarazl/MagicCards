@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.magiccards.R
 import org.w3c.dom.Text
@@ -15,7 +16,8 @@ import org.w3c.dom.Text
 class CardDetailFragment: Fragment() {
 
     lateinit var viewModel: CardDetailViewModel
-    var cardID = ""
+    private var cardID = ""
+    private val args: CardDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,12 +32,10 @@ class CardDetailFragment: Fragment() {
 
         val buttonBack = view.findViewById<Button>(R.id.buttonBack)
         viewModel = CardDetailViewModel()
+        cardID = args.cardID
 
-        val bundle = this.arguments
-        if (bundle != null) {
-            cardID = bundle.getString(CARD_ID, "0")
-            viewModel.getCard(cardID)
-        }
+        viewModel.getCard(cardID)
+
 
         setObserver(view)
 
@@ -58,9 +58,5 @@ class CardDetailFragment: Fragment() {
                     .into(view.findViewById(R.id.card_detail_image))
             }
         )
-    }
-
-    companion object {
-        const val CARD_ID = "multiverseid"
     }
 }

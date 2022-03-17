@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 
-        openFragment(HomeFragment())
+        //openFragment(HomeFragment())
     }
 
     fun openFragment(fragment: Fragment) {

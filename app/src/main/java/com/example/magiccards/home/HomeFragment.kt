@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.findNavController
 import com.example.magiccards.MainActivity
 import com.example.magiccards.R
+import com.example.magiccards.databinding.HomeFragmentBinding
 import com.example.magiccards.list.CardsListFragment
 
 class HomeFragment : Fragment() {
@@ -23,7 +25,7 @@ class HomeFragment : Fragment() {
         val buttonEnter = view.findViewById<Button>(R.id.buttonEnter)
 
         buttonEnter.setOnClickListener {
-            (activity as MainActivity).openFragment(CardsListFragment())
+            view.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCardsListFragment())
         }
     }
 }

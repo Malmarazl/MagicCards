@@ -5,6 +5,8 @@
 
     <!-- Strings used for fragments for navigation -->
     <string name="home_fragment_label">Home Fragment</string>
+    <string name="cards_list_fragment_label">Cards List Fragment</string>
+    <string name="card_detail_fragment_label">Card Detail Fragment</string>
 
     <!-- Strings used for HomeFragment -->
     <string name="welcome_text">¡Bienvenido a Magic Cards!</string>

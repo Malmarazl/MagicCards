@@ -12,12 +12,12 @@ import java.lang.Exception
 class CardsListViewModel: ViewModel() {
 
     private val _cardsList = MutableLiveData<List<Card>>()
-    private val _error = MutableLiveData<String>()
+    private val _error = MutableLiveData<Boolean>()
     private var _loading = MutableLiveData<Boolean>()
 
     val cardsList: LiveData<List<Card>>  = _cardsList
     var loading: LiveData<Boolean> = _loading
-    val error: LiveData<String> = _error
+    val error: LiveData<Boolean> = _error
 
     fun getCards() {
         viewModelScope.launch {
@@ -32,10 +32,10 @@ class CardsListViewModel: ViewModel() {
             response?.let {
                 _cardsList.postValue(it.cards)
                 _loading.postValue(false)
-            }?: _error.postValue("Error al cargar el listado de cartas")
+            }
         } catch (e: Exception) {
             _loading.postValue(false)
-            _error.postValue(e.message)
+            _error.postValue(true)
         }
     }
 }

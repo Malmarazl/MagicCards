@@ -12,11 +12,11 @@ import kotlinx.coroutines.launch
 class CardDetailViewModel: ViewModel() {
 
     private val _card = MutableLiveData<Card>()
-    private val _error = MutableLiveData<String>()
+    private val _error = MutableLiveData<Boolean>()
     private var _loading = MutableLiveData<Boolean>()
 
     val card: LiveData<Card> = _card
-    val error: LiveData<String> = _error
+    val error: LiveData<Boolean> = _error
     var loading: LiveData<Boolean> = _loading
 
     fun getCard(cardID: String) {
@@ -32,10 +32,10 @@ class CardDetailViewModel: ViewModel() {
             response?.let {
                 _card.postValue(it.parentCard)
                 _loading.postValue(false)
-            } ?:  _error.postValue("Ha habido un error al recuperar la carta")
+            }
         } catch (e: Exception){
             _loading.postValue(false)
-            _error.postValue(e.message)
+            _error.postValue(true)
         }
     }
 }

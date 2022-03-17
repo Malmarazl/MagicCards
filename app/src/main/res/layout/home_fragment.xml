@@ -65,7 +65,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/big_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="@dimen/big_margin"
         android:text="@string/button_enter" />

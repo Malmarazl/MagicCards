@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
-import com.example.magiccards.MainActivity
 import com.example.magiccards.R
-import com.example.magiccards.databinding.HomeFragmentBinding
-import com.example.magiccards.list.CardsListFragment
 
 class HomeFragment : Fragment() {
     override fun onCreateView(

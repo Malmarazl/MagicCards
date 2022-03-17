@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/card_name"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_dimen"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
@@ -51,7 +51,7 @@
 
         <TextView
             android:id="@+id/card_type"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_dimen"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
@@ -64,7 +64,7 @@
 
         <TextView
             android:id="@+id/card_rarity"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_dimen"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"

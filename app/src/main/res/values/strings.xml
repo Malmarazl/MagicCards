@@ -19,4 +19,8 @@
     <string name="author_date">14/03/2022</string>
     <string name="button_enter">Entrar</string>
 
+    <!-- Cards List Fragment -->
+    <string name="recycler_card_name">Nombre</string>
+    <string name="recycler_card_type">Tipo</string>
+    <string name="recycler_card_rarity">Rareza</string>
 </resources>

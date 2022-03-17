@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.magiccards.MainActivity
@@ -17,16 +18,8 @@ class CardsListFragment : Fragment() {
 
     private var cardListener = object: CardListener {
         override fun sendCardID(id: String) {
-
-            val cardDetailFragment = CardDetailFragment()
-            val bundle = Bundle()
-
-            bundle.putString(CARD_ID, id)
-            cardDetailFragment.arguments = bundle
-
-            view?.let{
-                (activity as MainActivity).openFragment(cardDetailFragment)
-            }
+            view?.findNavController()?.
+                navigate(CardsListFragmentDirections.actionCardsListFragmentToCardDetailFragment(id))
         }
     }
 

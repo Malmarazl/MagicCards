@@ -8,6 +8,30 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.magiccards.home.HomeFragment"
-        android:label="home_fragment"
-        tools:layout="@layout/home_fragment" />
+        android:label="@string/home_fragment_label"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_cardsListFragment"
+            app:destination="@id/cardsListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cardsListFragment"
+        android:name="com.example.magiccards.list.CardsListFragment"
+        android:label="@string/cards_list_fragment_label"
+        tools:layout="@layout/cards_list_fragment" >
+        <action
+            android:id="@+id/action_cardsListFragment_to_cardDetailFragment"
+            app:destination="@id/cardDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cardDetailFragment"
+        android:name="com.example.magiccards.detail.CardDetailFragment"
+        android:label="@string/card_detail_fragment_label"
+        tools:layout="@layout/card_detail_fragment" >
+        <argument
+            android:name="cardID"
+            app:argType="string"/>
+    </fragment>
 </navigation>

@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.magiccards.MainActivity
 import com.example.magiccards.R
-import com.example.magiccards.detail.CardDetailFragment
+import kotlinx.android.synthetic.main.cards_list_fragment.*
+import kotlinx.android.synthetic.main.error_screen.*
 
 class CardsListFragment : Fragment() {
 
-    lateinit var viewModel: CardsListViewModel
+    private lateinit var viewModel: CardsListViewModel
 
     private var cardListener = object: CardListener {
         override fun sendCardID(id: String) {
@@ -37,20 +37,33 @@ class CardsListFragment : Fragment() {
         viewModel = CardsListViewModel()
         viewModel.getCards()
 
-        val recycler: RecyclerView = view.findViewById(R.id.recyclerCardsList)
+        setObservers()
+    }
 
+    private fun setObservers() {
 
         viewModel.cardsList.observe(
             viewLifecycleOwner,{
                 val adapter = ItemCardListAdapter(it, requireContext(), cardListener)
-                recycler.adapter = adapter
-                recycler.layoutManager = LinearLayoutManager(context)
+                recyclerCardsList.adapter = adapter
+                recyclerCardsList.layoutManager = LinearLayoutManager(context)
             }
         )
 
         viewModel.loading.observe(
             viewLifecycleOwner,{
                 (requireActivity() as MainActivity).showSpinner(it)
+            }
+        )
+
+        viewModel.error.observe(
+            viewLifecycleOwner, {
+                screen_error.visibility = View.VISIBLE
+
+                button_retry.setOnClickListener {
+                    viewModel.getCards()
+                    screen_error.visibility = View.GONE
+                }
             }
         )
     }

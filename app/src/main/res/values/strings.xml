@@ -3,6 +3,10 @@
     <string name="app_name">MagicCards</string>
     <string name="button_back">Atrás</string>
 
+    <!-- Strings Error Screen -->
+    <string name="error_message">Ha habido un error</string>
+    <string name="button_try_again">Intentar de nuevo</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="home_fragment_label">Home Fragment</string>
     <string name="cards_list_fragment_label">Cards List Fragment</string>
@@ -14,7 +18,5 @@
     <string name="author_mail">malmaraz@hiberus.com</string>
     <string name="author_date">14/03/2022</string>
     <string name="button_enter">Entrar</string>
-
-    <!-- Strings used for CardDetailFragment -->
 
 </resources>

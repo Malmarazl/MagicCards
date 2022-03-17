@@ -2,46 +2,84 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card"
+    android:layout_marginBottom="@dimen/default_margin"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/card_image"
-        android:layout_width="170dp"
-        android:layout_height="260dp"
-        android:scaleType="fitCenter"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/card_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:textSize="@dimen/default_text_size"
-        android:textStyle="bold"
-        android:text="Name"/>
+        app:cardElevation="3dp"
+        app:strokeWidth="2dp"
+        app:cardBackgroundColor="@color/primaryLightColor"
+        app:strokeColor="@color/primaryDarkColor">
 
-    <TextView
-        android:id="@+id/card_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_name"
-        android:layout_marginTop="@dimen/fab_margin"
-        android:textSize="@dimen/default_text_size"
-        android:text="Type"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/default_padding"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/card_rarity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_type"
-        android:textSize="@dimen/default_text_size"
-        android:text="Rarity"/>
+        <ImageView
+            android:id="@+id/card_image"
+            android:layout_width="@dimen/image_recycler_width"
+            android:layout_height="@dimen/image_recycler_height"
+            android:scaleType="fitCenter"
+            android:layout_marginStart="@dimen/fab_margin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/card_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginStart="@dimen/default_margin"
+            app:layout_constraintStart_toEndOf="@id/card_image"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/default_text_size"
+            android:textColor="@color/secondaryLightColor"
+            android:textStyle="bold"
+            android:text="@string/recycler_card_name"/>
+
+        <TextView
+            android:id="@+id/card_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_marginStart="@dimen/default_margin"
+            app:layout_constraintStart_toEndOf="@id/card_image"
+            app:layout_constraintTop_toBottomOf="@id/card_name"
+            android:textColor="@color/secondaryColor"
+            android:textSize="@dimen/default_text_size"/>
+
+        <TextView
+            android:id="@+id/card_rarity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintWidth_percent="0.45"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintStart_toEndOf="@id/card_image"
+            app:layout_constraintTop_toBottomOf="@id/card_type"
+            android:textSize="@dimen/default_text_size"
+            android:textColor="@color/secondaryColor"
+            android:textStyle="italic"
+            android:text="@string/recycler_card_rarity"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

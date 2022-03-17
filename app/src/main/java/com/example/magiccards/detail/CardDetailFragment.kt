@@ -47,6 +47,7 @@ class CardDetailFragment: Fragment() {
                 card_detail_name.text = it.name
                 card_detail_type.text = it.type
                 card_detail_rarity.text = it.rarity
+                card_detail_description.text = it.text
 
                 Glide
                     .with(this)

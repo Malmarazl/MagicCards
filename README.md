@@ -7,11 +7,11 @@ Proyecto hecho en Kotlin que muestra un listado de cartas Magic y el detalle de 
 ## Sobre el proyecto
 
 * El proyecto utiliza un patrón **MVVM** (model-view-viewmodel)
-* Uso de ViewModel para procesar los datos que recibirá la vista
 * Se ha utilizado **Material Design** para los estilos
 * Las variables para definir tamaños, colores y textos están en sus ficheros oportunos
+* Se han utilizado las **corrutinas** para realizar las llamadas a las funciones suspendidas que hacen una petición API 
 * Hay un único MainActivity el cual tiene un **FragmentContainerView** donde se muestran los fragmentos. Cada fragmento tiene sus propios **ConstraintLayouts**
-* Dispone de un componente **Navigation** que contiene toda la información con la navegación de la aplicación y establece las rutas de navegación que debe tomar el usuario
+* Dispone de un componente **Navigation** que contiene toda la información con la navegación de la aplicación y establece las rutas de navegación que puede tomar el usuario
 * Cada funcionalidad ha sido implementada en distintas ramas que han sido mergeadas a la rama principal del proyecto
 * Dependencias utilizadas
   - Glide para cargar las imágenes de las cartas
